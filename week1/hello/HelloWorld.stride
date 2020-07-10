@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="HelloWorld" enable="true" strideversion="1">
+    <javadoc xml:space="preserve"/>
+    <imports>
+        <import target="edu.duke.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields/>
+    <constructors/>
+    <methods>
+        <method access="public" type="void" type-java="void" name="runHello" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="FileResource" type-java="FileResource" name="res" value="new FileResource ( &quot;hello_unicode.txt&quot; )" value-java="new FileResource ( &quot;hello_unicode.txt&quot; )" enable="true"/>
+                <foreach type="String" type-java="String" var="line" collection="res . lines ( )" collection-java="res . lines ( )" enable="true">
+                    <call expression="System . out . println ( line )" expression-java="System . out . println ( line )" enable="true"/>
+                </foreach>
+            </body>
+        </method>
+    </methods>
+</class>
