@@ -144,5 +144,7 @@ public class PerimeterAssignmentRunner {
         PerimeterAssignmentRunner pr = new PerimeterAssignmentRunner();
         //pr.testPerimeter();
         pr.testFileWithLargestPerimeter();
+        //pr.testPerimeterMultipleFiles();
+        
     }
 }
