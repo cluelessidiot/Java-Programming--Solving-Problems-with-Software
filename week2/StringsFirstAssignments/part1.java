@@ -9,6 +9,7 @@ public class part1 {
     
     String findSimpleGene(String dna){
         String subString=null;
+        dna=dna.toUpperCase();
         int startIndex=dna.indexOf("ATG");
         int endIndex=dna.indexOf("TAA",startIndex+3);
         if(dna.indexOf("ATG")==-1 || dna.indexOf("TAA",startIndex+3)==-1 ){
