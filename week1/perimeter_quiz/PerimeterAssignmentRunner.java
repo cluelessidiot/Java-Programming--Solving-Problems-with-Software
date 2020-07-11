@@ -63,13 +63,36 @@ public class PerimeterAssignmentRunner {
     }
 
     public double getLargestPerimeterMultipleFiles() {
-        // Put code here
-        return 0.0;
+        DirectoryResource dr = new DirectoryResource();
+        double largePerimeter=0;
+        for (File f : dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            Shape s = new Shape(fr);
+            double length = getPerimeter(s);
+            if(length>largePerimeter){
+            largePerimeter=length;
+            }
+            
+
+            
+         }
+        return largePerimeter;
     }
 
     public String getFileWithLargestPerimeter() {
-        // Put code here
-        File temp = null;    // replace this code
+        DirectoryResource dr = new DirectoryResource();
+         File temp = null; 
+        double largePerimeter=0;
+        for (File f : dr.selectedFiles()) {
+            FileResource fr = new FileResource(f);
+            Shape s = new Shape(fr);
+            double length = getPerimeter(s);
+            if(length>largePerimeter){
+            largePerimeter=length;
+            temp=f;
+            }
+        }
+          // replace this code
         return temp.getName();
     }
 
@@ -89,11 +112,11 @@ public class PerimeterAssignmentRunner {
     }
     
     public void testPerimeterMultipleFiles() {
-        // Put code here
+        System.out.println("largest PM ="+getLargestPerimeterMultipleFiles());
     }
 
     public void testFileWithLargestPerimeter() {
-        // Put code here
+        System.out.println("largest PM file"+getFileWithLargestPerimeter());
     }
 
     // This method creates a triangle that you can use to test your other methods
@@ -119,7 +142,7 @@ public class PerimeterAssignmentRunner {
 
     public static void main (String[] args) {
         PerimeterAssignmentRunner pr = new PerimeterAssignmentRunner();
-        pr.testPerimeter();
-        //pr.getNumPoints();
+        //pr.testPerimeter();
+        pr.testFileWithLargestPerimeter();
     }
 }
