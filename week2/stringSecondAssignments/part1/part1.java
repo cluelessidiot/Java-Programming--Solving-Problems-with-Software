@@ -8,7 +8,7 @@
 public class part1 {
     int findStopCodon(String dna,int startIndex,String endCodon){
         int endIndex=dna.indexOf(endCodon,startIndex+3);
-        if(endIndex==-1 || (endIndex-startIndex)%3==0){
+        if(endIndex==-1 || (endIndex-startIndex)%3!=0){
             return dna.length();
         }
         else{
@@ -37,6 +37,37 @@ public class part1 {
             
     
     }
+    int howManyGenes(String dna){
+        int startIndex=dna.indexOf("ATG");
+        if(startIndex==-1){
+            return 0;
+        }
+        int ct=0;
+        while(true){
+        int endIndexTaa=findStopCodon(dna,startIndex,"TAA");
+        int endIndexTag=findStopCodon(dna,startIndex,"TAG");
+        int endIndexTga=findStopCodon(dna,startIndex,"TGA");
+        int minIndex=Math.min(endIndexTaa,Math.min(endIndexTag,endIndexTga));
+        System.out.println("M:"+minIndex);
+        if(minIndex==dna.length())
+           return ct;
+        else{
+           ct=ct+1;
+           System.out.println("DDD");
+           startIndex=minIndex+3;
+           if(startIndex>=dna.length())
+             return ct;
+        }   
+        
+        }
+        
+    
+    
+    
+    }
+    
+    
+    
     int howMany(String a,String b){
         int startIndex=0;
         int ct=0;
@@ -63,6 +94,10 @@ public class part1 {
     System.out.println(howMany("aaaaaaaaaaa","q"));
     System.out.println(howMany("aaaaabaaaaaba","aba"));
     }
+     void testHowManyGenes(){
+         System.out.println(howManyGenes("ATGTAATAATGAAATAA"));
+         System.out.println(howManyGenes("ATGTGTGTGTGTTAG"));
+        }
     void testFindStopCodon(){
         
         System.out.println(findGene("ATACATATATGTGTGTGGATGATTAATAG"));
