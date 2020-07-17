@@ -12,18 +12,18 @@ public class part1 {
    public void tester(){
     FileResource fr = new FileResource();
     CSVParser parser = fr.getCSVParser();
-    //System.out.println(countryInfo(parser,"Germany"));
-    //printCountryInfo(parser,"gold","diamonds");
-     //System.out.println(numberOfExporters(parser,"gold"));
+   // System.out.println(countryInfo(parser,"Nauru"));
+    //printCountryInfo(parser,"fish","nuts");
+    // System.out.println(numberOfExporters(parser,"gold"));
      //bigExporters  (parser,"$720,000,000");
      //System.out.println(comparator("$876","$999"));
-     bigExporters (parser,"$999,999,999");
+     bigExporters (parser,"$999,999,999,999");
     }
     String countryInfo (CSVParser parser,String country){
      for(CSVRecord record: parser){
         String countryData= record.get("Country");
         if(countryData.contains(country)){
-            System.out.println(record.get(0));
+           // System.out.println(record.get(0));
             return record.toString();
         }
         
